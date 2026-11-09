@@ -727,3 +727,71 @@ body::before {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
+
+/* Checkbox & Header Styling for Task Slips */
+.slip-title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 6px;
+  border: 2px solid var(--border-sand);
+  background: #FFFDF8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.task-checkbox:hover {
+  border-color: var(--primary-accent);
+  box-shadow: 0 0 0 2px rgba(242, 107, 58, 0.15);
+}
+
+.task-checkbox.checked {
+  background: var(--stamp-red);
+  border-color: var(--stamp-red);
+}
+
+.stamp-btn {
+  border: 1.5px dashed #b5a494;
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text-main);
+  padding: 0.32rem 0.75rem;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.stamp-btn:hover {
+  border-color: var(--stamp-red);
+  color: var(--stamp-red);
+  background: #fff;
+  transform: translateY(-1px);
+}
+
+.stamp-btn.is-done {
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+  background: rgba(231, 218, 195, 0.3);
+}
+
+.done-stamp {
+  pointer-events: auto !important;
+}

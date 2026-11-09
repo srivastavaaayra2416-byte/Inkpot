@@ -87,13 +87,26 @@ export default function TaskSlip({ task, index, onToggle, onDelete, onUpdate }) 
       ) : (
         <>
           <div className="slip-header">
-            <h3 className="slip-title">{task.title}</h3>
+            <div className="slip-title-row">
+              <button
+                type="button"
+                className={`task-checkbox ${task.completed ? 'checked' : ''}`}
+                onClick={handleToggle}
+                aria-label={task.completed ? 'Mark task as open' : 'Mark task as completed'}
+                title={task.completed ? 'Mark task as open' : 'Mark task as completed'}
+              >
+                {task.completed && <Check size={14} strokeWidth={3} />}
+              </button>
+              <h3 className="slip-title" onClick={handleToggle} style={{ cursor: 'pointer' }}>
+                {task.title}
+              </h3>
+            </div>
             <button
               onClick={handleToggle}
-              className="stamp-btn"
-              title={task.completed ? 'Mark Open' : 'Stamp as Done'}
+              className={`stamp-btn ${task.completed ? 'is-done' : ''}`}
+              title={task.completed ? 'Mark task as open' : 'Stamp task as DONE'}
             >
-              {task.completed ? 'Undo' : 'Stamp'}
+              {task.completed ? '↩ Undo' : '✓ Mark Done'}
             </button>
           </div>
 
@@ -103,7 +116,7 @@ export default function TaskSlip({ task, index, onToggle, onDelete, onUpdate }) 
 
           {/* Rubber DONE Stamp if completed */}
           {task.completed && (
-            <div className="done-stamp">
+            <div className="done-stamp" onClick={handleToggle} style={{ cursor: 'pointer' }} title="Click to undo">
               DONE
             </div>
           )}
